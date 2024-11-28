@@ -1,0 +1,82 @@
+query users{
+  users {
+    id
+    username
+    email
+    events{
+        id
+        title
+    }
+  }
+}
+
+query getUser{
+  user(id:1) {
+    id
+    username
+    email
+  }
+}
+
+
+query events{
+  events {
+    id
+    title
+    desc
+    date
+    to
+    from
+    location_id
+    user_id
+    user {
+      username
+      email
+    }
+    participants{
+      id
+      user_id
+    }
+    location{
+      id
+      name
+    }
+  }
+}
+
+query event {
+  event(id: 2) {
+    id
+    title
+  }
+}
+
+query locations{
+  locations {
+    id
+    name
+  }
+}
+
+query getLocation{
+  location(id: 1) {
+    id
+    name
+  }
+}
+
+query participants {
+  participants {
+    id
+    user_id
+    event_id
+  }
+}
+
+query getParticipant {
+  participant(id: 2) {
+    id
+    user_id
+    event_id
+  }
+}
